@@ -1,0 +1,24 @@
+
+Version 0.3 (Released: TBD)
+
+NEW
+---
+Added tab functionality to web interface; introducing control tab
+Integrated blacklist component into web interface
+Integrated single/cycle target modes into web interface
+Added auto-refresh component
+Added persistent tab collapse to enhance usability with auto-refresh component
+Added ability to save Responder.py-style (-r) hashes
+Added Snarf ID# to hash dialog
+Upgraded to jQuery UI 1.11.2
+
+BUGS
+----
+Fixed typo in smbbroker.js(line:227) - s/middler.attributes.timreID/middler.attributes.timerID
+Fixed issue affecting deactivateKeepAlive().
+    The function would not properly execute when called from server.on('error'). The
+    variable passed from broker.deactivateMiddler() was type integer, representing the
+    middler ID. However, the deactivateKeepAlive() function expected a middler object.
+    The code was modified(middler.js-line:168) to pass the current middler object. This
+    seemed to work well since it supported other areas that called the function with a
+    middler object. Two additional lines (broker.js-line:120-121) were modified accordingly.
